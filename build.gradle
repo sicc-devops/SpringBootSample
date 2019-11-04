@@ -1,0 +1,62 @@
+buildscript {
+	ext {
+		springBootVersion = '2.2.0.RELEASE'
+        thymeleafVersion = '3.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+         maven {
+             url "https://plugins.gradle.org/m2/"
+        }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1")
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+		
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.2.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'eclipse'
+}
+
+group = 'com.sicc.sample'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.security:spring-security-test'
+	
+	//spring aop
+    compile("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}") {
+        exclude module: 'spring-boot-starter-logging'
+    }
+    
+    compile('com.auth0:java-jwt:3.4.1')
+    compile('io.jsonwebtoken:jjwt:0.8.0')
+    compile group: 'org.json', name: 'json', version: '20190722'
+    
+    // jdbc log
+	compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4', version: '1.16'
+	
+}
+
+test {
+	useJUnitPlatform()
+}
