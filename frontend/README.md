@@ -1,6 +1,3 @@
-# sample
-
-> sample
 
 ## Build Setup
 
