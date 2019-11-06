@@ -2,7 +2,7 @@
 <!DOCTYPE configuration>
 <configuration>
 <include resource="org/springframework/boot/logging/logback/base.xml" />
-<logger name="jdbc.splonly" level="DEBUG" />
+<logger name="jdbc.splonly" level="INFO" />
 <logger name="jdbc.sqltiming" level="ERROR" />
 <logger name="jdbc.audit" level="WARN" />
 <logger name="jdbc.resultset" level="ERROR" />

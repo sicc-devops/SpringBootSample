@@ -11,7 +11,7 @@ spring:
     active: dev
   datasource: # postgres
     driverClassName: org.postgresql.Driver
-    url: jdbc:log4jdbc:postgresql://localhost:5432/phs?currentSchema=demo
+    url: jdbc:log4jdbc:postgresql://15.164.222.205:5432/postgres?currentSchema=demo
     username: postgres
     password: qwe123!!
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
